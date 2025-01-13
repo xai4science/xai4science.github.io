@@ -201,7 +201,7 @@ html,body{
     color: #222;
     font-size: 54px;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: none;
     text-align: center;
     line-height: 1.5;
     margin-top: 80px;
@@ -502,6 +502,7 @@ html,body{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 .guideline-title {
@@ -762,7 +763,7 @@ html,body{
 }
 
 .link:hover {
-    color: #9d3400;
+    color: #006f18;
     text-decoration: underline;
     font-weight: 500;
 }
@@ -832,6 +833,7 @@ ul li {
 
 .span-highlight {
     color: #198754;
+    text-transform: none;
 }
 
 /*-------------------------------------
