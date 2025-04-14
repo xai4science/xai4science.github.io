@@ -356,7 +356,7 @@ html,body{
 .card-title h6 {
     font-size: 20px;
     color: #333;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.1rem;
     text-transform: none;
 }
 
@@ -401,8 +401,8 @@ html,body{
     width: 64px;
     background-color: #198754;
     border: none;
-    margin-top: 8px;
-    margin-bottom: 1rem;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 /* -------------------------------------
@@ -444,6 +444,7 @@ html,body{
     background-color: #fff;
     border-radius: 4px;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .table th,
@@ -631,6 +632,24 @@ html,body{
     object-fit: cover;
 }
 
+.speaker-img-small-modal {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; 
+    display: block;
+    margin: 0 auto 5px;
+    object-fit: cover;
+}
+
+.speaker-img-tiny-modal {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    display: block;
+    margin: 0 auto 5px;
+    object-fit: cover;
+}
+
 .modal-header {
     display: flex;
     flex-direction: column;
@@ -788,6 +807,10 @@ html,body{
 
 .space {
     margin-top: 4rem;
+}
+
+.space-small {
+    margin-top: 2rem;
 }
 
 h3 {
