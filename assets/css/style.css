@@ -488,15 +488,19 @@ html,body{
 }
 
 .table-2 {
-    background-color: #E6E6FA !important; /* Lavender */
+    background-color: #e6e6fa !important; /* Lavender Mist */
 }
 
 .table-3 {
-    background-color: #F0FFF0 !important; /* Honeydew */
+    background-color: #f0f8ff !important; /* Alice Blue */
 }
 
 .table-4 {
-    background-color: #faf4dea9 !important;
+    background-color: #fffacd !important; /* Lemon Chiffon */
+}
+
+.table-5 {
+    background-color: #FDE2E4 !important; /* Pale Rose */
 }
 
 
