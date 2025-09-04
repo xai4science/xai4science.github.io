@@ -102,7 +102,7 @@ html,body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('path/to/noise.png');
+    /* background: url('path/to/noise.png'); */
     opacity: 0.1;
     pointer-events: none;
     z-index: 1;
