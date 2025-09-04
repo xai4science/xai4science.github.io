@@ -157,6 +157,31 @@ html,body{
     font-size: 1.2rem;
 }
 
+/* Dropdown styles */
+.dropdown-menu {
+    background-color: rgba(255, 255, 255) !important;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    /* min-width: 100px; */
+    padding: 8px 0;
+    position: relative;
+    z-index: 1000;
+}
+.dropdown-menu .nav-link {
+    padding: 8px 16px;
+}
+
+.dropdown-menu .nav-link:hover {
+    background-color: #f8f9fa;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 /*-------------------------------------
         Welcome-hero
 --------------------------------------*/
