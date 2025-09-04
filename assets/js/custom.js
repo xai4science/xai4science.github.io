@@ -50,10 +50,10 @@ $(document).ready(function(){
 			}, 1200,'easeInOutExpo');
 		});
 		
-		$('body').scrollspy({
-			target:'.navbar-collapse',
-			offset:0
-		});
+		// $('body').scrollspy({
+		// 	target:'.navbar-collapse',
+		// 	offset:0
+		// });
 
 	// 3. Progress-bar
 	
