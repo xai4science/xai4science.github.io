@@ -195,7 +195,8 @@ html,body{
     background-size:cover;
     background-position: center;
     margin-top: 40px;
-    height:80vh;
+    /* height:80vh; */
+    height: auto !important;
     z-index: 1;
 }
 
