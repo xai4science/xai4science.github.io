@@ -118,6 +118,7 @@ html,body{
     background: inherit;
     filter: blur(15px);
     z-index: 0;
+    pointer-events: none;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -164,7 +165,6 @@ html,body{
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-top: 8px;
-    /* min-width: 100px; */
     padding: 8px 0;
     position: relative;
     z-index: 1000;
@@ -844,10 +844,6 @@ html,body{
     margin-top: 2rem;
 }
 
-h3 {
-    
-}
-
 h4 {
     font-size: 24px;
     color: #242424;
@@ -937,5 +933,3 @@ html {
         transform: translateX(-50%);
     }
 }
-
-  

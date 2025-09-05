@@ -1280,7 +1280,7 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
     /* Tabs
     =================================*/ 
     nav.navbar.bootsnav .megamenu-content.tabbed{
-        padding-left: 0 !mportant;
+        padding-left: 0 !important;
     }
     
     nav.navbar.bootsnav .tabbed > li{
@@ -1471,4 +1471,3 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
         padding-bottom: 30px;
     }
 }
-
