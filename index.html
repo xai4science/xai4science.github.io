@@ -9,10 +9,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!--font-family-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
     <!-- title of site -->
-    <title>XAI4Science Workshop</title>
+    <title>XAI4Science Workshop — NeurIPS 2026</title>
 
     <!-- For favicon png -->
     <link rel="shortcut icon" type="image/icon" href="assets/logo/neurips.png" />
@@ -38,6 +40,9 @@
 
     <!--style.css-->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--neurips2026.css (this edition only)-->
+    <link rel="stylesheet" href="assets/css/neurips2026.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -66,36 +71,25 @@
     <!-- top-area Start -->
     <header class="header sticky-header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
+            <div class="container-fluid nav-container">
+              <a class="brand-mark" href="#welcome-hero"><span class="brand-dot"></span>XAI4Science</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#welcome-hero">XAI4Science</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#dates">Dates</a>
-                  </li>
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll align-items-lg-center">
                   <li class="nav-item">
                     <a class="nav-link" href="#goals">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#topics">Topics</a>
+                    <a class="nav-link" href="#topics">Speakers</a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="#speakers">Speakers</a>
-                  </li> -->
                   <li class="nav-item">
                     <a class="nav-link" href="#schedule">Schedule</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#call-for-submission">Call For Submissions</a>
-                  <!-- </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#call-for-reviewers">Call For Reviewers</a>
-                  </li> -->
+                    <a class="nav-link" href="#call-for-submission">Submissions</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#organizers">Organizers</a>
                   </li>
@@ -105,6 +99,9 @@
                       <a class="dropdown-item" href="index-aaai2026.html">AAAI 2026</a>
                       <a class="dropdown-item" href="index-iclr2025.html">ICLR 2025</a>
                     </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link nav-cta" href="#call-for-submission">Submit a Paper</a>
                   </li>
                 </ul>
               </div>
@@ -120,156 +117,89 @@
     <!-- welcome-hero start -->
     <section id="welcome-hero" class="welcome-hero section-fade-in">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 custom-lg-6 custom-offset-lg-3 text-center">
-                    <div class="header-text">
-                        <h2><span class="span-highlight">XAI4Science</span>: Knowledge Discovery and Trust through Interpretable Foundation Models</h2>
-                        <div class="info-wrapper">
-                            <p><i class="fas fa-calendar-day"></i>December 11-12, co-located with NeurIPS 2026 (Sydney, Australia)</p>
-                            <p><i class="fas fa-quote-left"></i>Demystifying the climate black box.</p>
-                        </div>
+            <div class="hero-shell">
+                <div class="header-text">
+                    <span class="eyebrow">NeurIPS 2026 Workshop</span>
+                    <h2><span class="span-highlight">XAI4Science</span>: Knowledge Discovery and Trust through Interpretable Foundation Models</h2>
+                    <div class="hero-meta">
+                        <span class="hero-pill"><i class="fas fa-calendar-day"></i>December 11–12, 2026</span>
+                        <span class="hero-pill"><i class="fas fa-location-dot"></i>Sydney, Australia</span>
+                        <span class="hero-pill"><i class="fas fa-file-lines"></i>Submissions open</span>
                     </div>
-                </div><!--/.col-->
-            </div><!-- /.row-->
-        </div><!-- /.container-->
+                    <p class="hero-tagline">"Demystifying the climate black box." Join us in mapping the future of explainable AI and weather foundation models.</p>
+                </div>
+            </div>
+        </div>
 
     </section><!--/.welcome-hero-->
     <!--welcome-hero end -->
 
 
     <!-- goals start -->
-    <section id="goals" class="goals section-fade-in">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-heading col-md-8 custom-lg-6">
-                    <h3>About</h3>
-                    <div class="separator-div"></div>
-                </div>
+    <section id="goals" class="goals section-fade-in section-band">
+        <div class="container section-split">
+            <div class="section-heading section-split-heading">
+                <span class="eyebrow">About</span>
+                <h3>Two converging crises in climate modeling</h3>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-8 custom-lg-6 text-left">
-                    <p>Climate change represents an existential race that humanity cannot afford to lose. Through accurate weather forecasting models and Environmental Sciences, researchers make informed choices towards a more sustainable future. While traditional models require immense computational resources, Machine Learning (ML) has proven to be a viable and efficient solution as more data is collected. Weather and Climate forecasting Foundation Models (FM) have shown that comparable results can be achieved with a fraction of the resources, opening the field to smaller countries and research teams with less investment and representation. While this provided a solution to the "efficiency" crisis in climate modeling, it introduced a "transparency" crisis: these black-box models pose a significant threat to scientific trust and social equity, impeding wider adoption in extreme weather event preparation and intervention, and in sustainable initiatives and global net-zero projects.</p>
-                    <br>
-                    <p>This workshop focuses on two converging crises: the technical challenge of extracting physically consistent explanations from high-dimensional FMs, and the risk that non-transparent models will reinforce existing inequalities through biased resource allocation. By integrating eXplainable Artificial Intelligence (XAI) into the modeling pipeline, we aim to reduce the interpretability gap and bias of FMs. By bringing together ML researchers, climate scientists, and policy experts, we investigate the fundamental role of interpretable architectures in addressing extreme weather events and building a low-carbon society for a better future.</p>
-                </div>
+
+            <div class="content-col prose section-split-body">
+                <p>Climate change represents an existential race that humanity cannot afford to lose. Through accurate weather forecasting models and Environmental Sciences, researchers make informed choices towards a more sustainable future. While traditional models require immense computational resources, Machine Learning (ML) has proven to be a viable and efficient solution as more data is collected. Weather and Climate forecasting Foundation Models (FM) have shown that comparable results can be achieved with a fraction of the resources, opening the field to smaller countries and research teams with less investment and representation. While this provided a solution to the "efficiency" crisis in climate modeling, it introduced a "transparency" crisis: these black-box models pose a significant threat to scientific trust and social equity, impeding wider adoption in extreme weather event preparation and intervention, and in sustainable initiatives and global net-zero projects.</p>
+                <p>This workshop focuses on two converging crises: the technical challenge of extracting physically consistent explanations from high-dimensional FMs, and the risk that non-transparent models will reinforce existing inequalities through biased resource allocation. By integrating eXplainable Artificial Intelligence (XAI) into the modeling pipeline, we aim to reduce the interpretability gap and bias of FMs. By bringing together ML researchers, climate scientists, and policy experts, we investigate the fundamental role of interpretable architectures in addressing extreme weather events and building a low-carbon society for a better future.</p>
             </div>
         </div>
     </section>
     <!-- goals end -->
 
     <!-- topics start -->
-    <section id="topics" class="goals section-fade-in">
+    <section id="topics" class="goals section-fade-in section-band section-band-sunken">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-heading col-md-8 custom-lg-6">
-                    <h3>Topics</h3>
-                    <div class="separator-div"></div>
-                </div>
+            <div class="section-heading">
+                <span class="eyebrow">Topics &amp; Speakers</span>
+                <h3>What the workshop covers</h3>
+                <p class="section-lede">By bringing together ML researchers, climate scientists, and policy experts, the program focuses on three threads:</p>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-md-8 custom-lg-6 text-left">
-                    <p>The workshop investigates the fundamental role of interpretable architectures in extracting physically consistent explanations from high-dimensional weather and climate Foundation Models. By bringing together ML researchers, climate scientists, and policy experts, we focus on:</p>
-                    <br>
-                    <p>The technical challenge of extracting physically consistent explanations from high-dimensional Foundation Models</p>
-                    <br>
-                    <p>The risk that non-transparent models will reinforce existing inequalities through biased resource allocation</p>
-                    <br>
-                    <p>Practical use of interpretability and explainability for knowledge discovery in</p>
-                        •⁠  🌦️ ⁠Weather and climate forecasting Foundation Models,
-                    <br>
-                        •⁠  ⚖️ ⁠Scientific trust and social equity, and
-                    <br>
-                        •⁠  🌍 ⁠⁠Extreme weather event preparation and low-carbon initiatives
-                    <div class="space-small"></div>
 
+            <div class="content-col content-col-wide">
+                <ul class="focus-list">
+                        <li><span class="focus-tag">Physically consistent explanations</span>Extracting explanations from high-dimensional weather and climate Foundation Models that hold up against known physics.</li>
+                        <li><span class="focus-tag">Equity of access</span>The risk that non-transparent models reinforce existing inequalities through biased resource allocation.</li>
+                        <li><span class="focus-tag">Knowledge discovery in practice</span>Applying interpretability to extreme weather preparation, low-carbon initiatives, and scientific trust more broadly.</li>
+                    </ul>
 
-                    <div class="card-container">
-                        <div class="card">
-                            <div class="card-title">
-                                <h6>Invited Speakers (tentative)</h6>
+                    <div class="speaker-grid">
+                        <div class="speaker-card">
+                            <div>
+                                <span class="speaker-card-index">Invited Speaker</span>
+                                <h6><a class="link modal-trigger stretched-link" href="#modal-gustau" data-bs-toggle="modal" data-bs-target="#modal-gustau">Gustau Camps-Valls</a> <span class="tentative-tag">(tentative)</span></h6>
+                                <p class="speaker-affiliation">Universitat de València</p>
                             </div>
+                        </div>
 
-                            <div class="card-description">
-                                <div class="col-md-12">
-                                    <table class="table table-sm">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <p style="text-align: center;">
-                                                        <a class="link" class="modal-trigger" href="#modal-gustau" data-bs-toggle="modal"
-                                                        data-bs-target="#modal-gustau">Gustau Camps-Valls (Universitat de València)</a>
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <i>Title: Causal Inference and Physics-Aware ML for Earth Observation</i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="speaker-card">
+                            <div>
+                                <span class="speaker-card-index">Invited Speaker</span>
+                                <h6><a class="link modal-trigger stretched-link" href="#modal-megan" data-bs-toggle="modal" data-bs-target="#modal-megan">Megan J. Stanley</a> <span class="tentative-tag">(tentative)</span></h6>
+                                <p class="speaker-affiliation">Ellison Institute of Technology Oxford</p>
                             </div>
+                        </div>
 
-                            <div class="card-description">
-                                <div class="col-md-12">
-                                    <table class="table table-sm">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <p style="text-align: center;">
-                                                        <a class="link" class="modal-trigger" href="#modal-megan" data-bs-toggle="modal"
-                                                        data-bs-target="#modal-megan">Megan J. Stanley (Ellison Institute of Technology Oxford)</a>
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <i>Title: Aurora — when Foundation Models meet Weather Forecasting</i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="speaker-card">
+                            <div>
+                                <span class="speaker-card-index">Invited Speaker</span>
+                                <h6><a class="link modal-trigger stretched-link" href="#modal-lily" data-bs-toggle="modal" data-bs-target="#modal-lily">Lily Xu</a> <span class="tentative-tag">(tentative)</span></h6>
+                                <p class="speaker-affiliation">Columbia University</p>
                             </div>
+                        </div>
 
-                            <div class="card-description">
-                                <div class="col-md-12">
-                                    <table class="table table-sm">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <p style="text-align: center;">
-                                                        <a class="link" class="modal-trigger" href="#modal-lily" data-bs-toggle="modal"
-                                                        data-bs-target="#modal-lily">Lily Xu (Columbia University)</a>
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <i>Title: AI for Wildlife Conservation: From Predictive Modeling to Field Deployment</i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-
-                            <div class="card-description">
-                                <div class="col-md-12">
-                                    <table class="table table-sm">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <p style="text-align: center;">
-                                                        <a class="link" class="modal-trigger" href="#modal-david" data-bs-toggle="modal"
-                                                        data-bs-target="#modal-david">David Rolnick (McGill University & Mila)</a>
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <i>Title: ML as a Catalyst for Climate Change Mitigation and Adaptation</i>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="speaker-card">
+                            <div>
+                                <span class="speaker-card-index">Invited Speaker</span>
+                                <h6><a class="link modal-trigger stretched-link" href="#modal-david" data-bs-toggle="modal" data-bs-target="#modal-david">David Rolnick</a> <span class="tentative-tag">(tentative)</span></h6>
+                                <p class="speaker-affiliation">McGill University &amp; Mila</p>
                             </div>
                         </div>
                     </div>
-
-                </div>
             </div>
         </div>
     </section>
@@ -277,81 +207,78 @@
 
 
     <!-- schedule start -->
-    <section id="schedule" class="schedule section-fade-in">
+    <section id="schedule" class="schedule section-fade-in section-band">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-heading col-md-8 custom-lg-6">
-                    <h3>Schedule</h3>
-                    <div class="separator-div"></div>
-                </div>
+            <div class="section-heading">
+                <span class="eyebrow">Program</span>
+                <h3>Schedule</h3>
+                <p class="section-lede">Tentative — one day, four invited talks, a panel, and two poster sessions.</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8 custom-lg-6">
+            <div class="content-col content-col-wide">
+                <div class="schedule-table-wrap">
                     <table class="table table-sm">
                         <thead>
-                            <tr class="table-danger">
-                                <th style="width: 24%;">TIME</th>
-                                <th>EVENT & PRESENTERS</th>
+                            <tr>
+                                <th style="width: 24%;">Time</th>
+                                <th>Session</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-white">
-                                <td>8:00 am - 8:15 am</td>
+                            <tr>
+                                <td>8:00 – 8:15 am</td>
                                 <td>Opening Remarks</td>
                             </tr>
-                            <tr class="table-2">
-                                <td>8:15 am - 9:00 am</td>
+                            <tr>
+                                <td>8:15 – 9:00 am</td>
                                 <td>
-                                    <a class="link2" class="modal-trigger" href="#modal-gustau" data-bs-toggle="modal"
-                                        data-bs-target="#modal-gustau"><b>Invited talk I:</b> Gustau Camps-Valls </a> <i>Universitat de València</i>
+                                    <span class="schedule-tag">Invited talk I</span>
+                                    <a class="link2 modal-trigger" href="#modal-gustau" data-bs-toggle="modal" data-bs-target="#modal-gustau">Gustau Camps-Valls</a> <i>Universitat de València</i>
                                 </td>
                             </tr>
-                            <tr class="table-2">
-                                <td>9:00 am - 9:45 am</td>
+                            <tr>
+                                <td>9:00 – 9:45 am</td>
                                 <td>
-                                    <a class="link2" class="modal-trigger" href="#modal-megan" data-bs-toggle="modal"
-                                        data-bs-target="#modal-megan"><b>Invited talk II:</b> Megan J. Stanley </a> <i>Ellison Institute of Technology Oxford</i>
+                                    <span class="schedule-tag">Invited talk II</span>
+                                    <a class="link2 modal-trigger" href="#modal-megan" data-bs-toggle="modal" data-bs-target="#modal-megan">Megan J. Stanley</a> <i>Ellison Institute of Technology Oxford</i>
                                 </td>
                             </tr>
-                            <tr class="table-2">
-                                <td>9:45 am - 10:30 am</td>
+                            <tr>
+                                <td>9:45 – 10:30 am</td>
                                 <td>
-                                    <a class="link2" class="modal-trigger" href="#modal-lily" data-bs-toggle="modal"
-                                        data-bs-target="#modal-lily"><b>Invited talk III:</b> Lily Xu </a> <i>Columbia University</i>
+                                    <span class="schedule-tag">Invited talk III</span>
+                                    <a class="link2 modal-trigger" href="#modal-lily" data-bs-toggle="modal" data-bs-target="#modal-lily">Lily Xu</a> <i>Columbia University</i>
                                 </td>
                             </tr>
-                            <tr class="table-3">
-                                <td>10:30 am - 12:00 pm</td>
-                                <td>Poster Session I & Coffee Break</td>
+                            <tr>
+                                <td>10:30 am – 12:00 pm</td>
+                                <td><span class="schedule-tag is-break">Break</span>Poster Session I &amp; Coffee Break</td>
                             </tr>
-                            <thead>
-                                <tr class="table-danger">
-                                    <th style="width: 24%;">12:00 pm - 1:00 pm</th>
-                                    <th>LUNCH BREAK</th>
-                                </tr>
-                            </thead>
-                            <tr class="table-5">
-                                <td>1:00 pm - 2:00 pm</td>
+                            <tr class="schedule-break-row">
+                                <td>12:00 – 1:00 pm</td>
+                                <td>Lunch Break</td>
+                            </tr>
+                            <tr>
+                                <td>1:00 – 2:00 pm</td>
                                 <td>Contributed Talks (I, II, III, and IV)</td>
                             </tr>
-                            <tr class="table-2">
-                                <td>2:00 pm - 2:45 pm</td>
+                            <tr>
+                                <td>2:00 – 2:45 pm</td>
                                 <td>
-                                    <a class="link2" class="modal-trigger" href="#modal-david" data-bs-toggle="modal"
-                                        data-bs-target="#modal-david"><b>Invited talk IV:</b> David Rolnick </a> <i>McGill University & Mila</i>
+                                    <span class="schedule-tag">Invited talk IV</span>
+                                    <a class="link2 modal-trigger" href="#modal-david" data-bs-toggle="modal" data-bs-target="#modal-david">David Rolnick</a> <i>McGill University &amp; Mila</i>
                                 </td>
                             </tr>
-                            <tr class="table-3">
-                                <td>2:45 pm - 4:15 pm</td>
-                                <td>Poster Session II & Coffee Break</td>
+                            <tr>
+                                <td>2:45 – 4:15 pm</td>
+                                <td><span class="schedule-tag is-break">Break</span>Poster Session II &amp; Coffee Break</td>
                             </tr>
-                            <tr class="table-1">
-                                <td>4:15 pm - 5:00 pm</td>
+                            <tr>
+                                <td>4:15 – 5:00 pm</td>
                                 <td>(Panel) The Interpretability Gap: Is a "Black Box" Prediction Better than No Prediction?</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -359,73 +286,85 @@
 
 
     <!-- call for submission start -->
-    <section id="call-for-submission" class="call-for-submission section-fade-in">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-heading col-md-8 custom-lg-6">
-                    <h3>Call for Submissions</h3>
-                    <div class="separator-div"></div>
-                </div>
+    <section id="call-for-submission" class="call-for-submission section-fade-in section-band section-band-sunken">
+        <div class="container section-split">
+            <div class="section-heading section-split-heading">
+                <span class="eyebrow">Call for Submissions</span>
+                <h3>Submission guidelines</h3>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8 custom-lg-6">
-                    <h4>Submission Guidelines</h4>
-                    <div class="guideline-item">
-                        <div class="guideline-title">Submission Tracks</div>
-                        <div class="guideline-content">
-                            (1) <i>Regular Paper Track</i>: <b>up to 8 pages</b>, excluding references and appendices.
-                        <br>
-                            (2) <i>Tiny Paper Track</i>: <b>up to 5 pages</b>, excluding references and appendices.
-                        <br>
-                            Unlimited pages are allowed for references and appendices in the same PDF as the main paper.</div>
-                    </div>
-                    <div class="guideline-item">
-                        <div class="guideline-title">Submission Format</div>
-                        <div class="guideline-content">Submissions must be in a <b>single PDF file</b> and
-                            are required to use the <b>NeurIPS 2026 LaTeX template</b>.
-                        </div>
-                    </div>
-                    <div class="guideline-item">
-                        <div class="guideline-title">Submission Link</div>
-                        <div class="guideline-content">All submissions must be made via <a class="link" href="https://openreview.net" target="_blank">OpenReview</a>.
-                            Also, <b>please make sure that all authors have an OpenReview profile with the latest information. Creating one may take up to 2 weeks.</b>
-                        </div>
-                    </div>
-                    <div class="guideline-item">
-                        <div class="guideline-title">General Policy</div>
-                        <div class="guideline-content">We welcome <b>optional anonymous submissions</b> of ongoing and unpublished work on any topics related to the workshop.
-                            We require each submission to nominate at least one author to serve as a reviewer, following the NeurIPS 2026 reciprocal review rule, and we aim for each paper to collect at least <b>three reviews</b>.
-                        </div>
-                    </div>
-                    <div class="guideline-item">
-                        <div class="guideline-title">Contributed Talks</div>
-                        <div class="guideline-content">
-                            Contributed talks' speakers will be selected from the top submissions received, giving deserving works a spotlight to a broad audience. Each speaker will have 15 minutes (10+5) for presentation and Q&A.
-                        </div>
-                    </div>
-
-                    <div class="space"></div>
-
-                    <!-- <h4>Camera-ready Submission Guidelines</h4>
-                    <div class="card-container">
-                        <div class="card">
-                            <div class="card-title">
-                                <p>
-                                Camera-ready version submission should be in PDF format. 
-                                Please follow the <a class="link" href="https://www.overleaf.com/read/hxrmgzhqmfhs#6b8854" target="_blank"> XAI4Science workshop camera-ready LaTeX template</a> 
-                                and de-anonymize your submission to include your complete author list. 
-                                You are allowed a maximum of <b>9 pages</b> for the <i>regular paper track</i> and <b>6 pages</b> for the <i>tiny paper track</i> (excluding references and appendices). 
-                                If you have supplementary material, you may append it at the end of the main paper. 
-                                Please submit the camera-ready version of your submission via OpenReview by April 19th.
-                                </p>
+            <div class="content-col section-split-body">
+                <div class="accordion cfs-accordion" id="submissionAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cfs-tracks" aria-expanded="true" aria-controls="cfs-tracks">
+                                    Submission Tracks
+                                </button>
+                            </h2>
+                            <div id="cfs-tracks" class="accordion-collapse collapse show" data-bs-parent="#submissionAccordion">
+                                <div class="accordion-body">
+                                    <p>(1) <i>Regular Paper Track</i>: <b>up to 8 pages</b>, excluding references and appendices.</p>
+                                    <p>(2) <i>Tiny Paper Track</i>: <b>up to 5 pages</b>, excluding references and appendices.</p>
+                                    <p>Unlimited pages are allowed for references and appendices in the same PDF as the main paper.</p>
+                                </div>
                             </div>
                         </div>
-                    </div> -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfs-format" aria-expanded="false" aria-controls="cfs-format">
+                                    Submission Format
+                                </button>
+                            </h2>
+                            <div id="cfs-format" class="accordion-collapse collapse" data-bs-parent="#submissionAccordion">
+                                <div class="accordion-body">
+                                    <p>Submissions must be in a <b>single PDF file</b> and are required to use the <b>NeurIPS 2026 LaTeX template</b>, available on the <a class="link" href="https://neurips.cc/Conferences/2026/MainTrackHandbook" target="_blank">NeurIPS 2026 Main Track Handbook</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfs-link" aria-expanded="false" aria-controls="cfs-link">
+                                    Submission Link
+                                </button>
+                            </h2>
+                            <div id="cfs-link" class="accordion-collapse collapse" data-bs-parent="#submissionAccordion">
+                                <div class="accordion-body">
+                                    <p>All submissions must be made via <a class="link" href="https://openreview.net" target="_blank">OpenReview</a>.</p>
+                                    <p><b>Please make sure that all authors have an OpenReview profile with the latest information. Creating one may take up to 2 weeks.</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfs-policy" aria-expanded="false" aria-controls="cfs-policy">
+                                    General Policy
+                                </button>
+                            </h2>
+                            <div id="cfs-policy" class="accordion-collapse collapse" data-bs-parent="#submissionAccordion">
+                                <div class="accordion-body">
+                                    <p>We welcome <b>optional anonymous submissions</b> of ongoing and unpublished work on any topics related to the workshop.</p>
+                                    <p>We require each submission to nominate at least one author to serve as a reviewer, following the NeurIPS 2026 reciprocal review rule, and we aim for each paper to collect at least <b>three reviews</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cfs-talks" aria-expanded="false" aria-controls="cfs-talks">
+                                    Contributed Talks
+                                </button>
+                            </h2>
+                            <div id="cfs-talks" class="accordion-collapse collapse" data-bs-parent="#submissionAccordion">
+                                <div class="accordion-body">
+                                    <p>Contributed talks' speakers will be selected from the top submissions received, giving deserving works a spotlight to a broad audience. Each speaker will have 15 minutes (10+5) for presentation and Q&amp;A.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="space"></div>
 
                     <h4>Important Dates</h4>
-                    <p>All dates are in AoE (Anywhere on Earth) time.</p>
+                    <p class="dates-note">All dates are in AoE (Anywhere on Earth) time.</p>
+                    <div class="dates-table-wrap">
                     <table class="table table-striped table-sm">
                         <tbody>
                             <tr>
@@ -434,7 +373,7 @@
                             </tr>
                             <tr>
                                 <td>Review Period</td>
-                                <td class="font-weight-bold">September 1 - September 15, 2026, AoE</td>
+                                <td class="font-weight-bold">September 1 – September 15, 2026, AoE</td>
                             </tr>
                             <tr>
                                 <td>Rebuttal Period Ends</td>
@@ -454,7 +393,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                    </div>
             </div>
         </div>
     </section>
@@ -546,91 +485,75 @@
 
 
     <!-- Organizers start -->
-    <section id="organizers" class="organizers section-fade-in">
+    <section id="organizers" class="organizers section-fade-in section-band">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-heading col-md-8 custom-lg-6">
-                    <h3>Organizers</h3>
-                    <div class="separator-div"></div>
-                </div>
+            <div class="section-heading">
+                <span class="eyebrow">Team</span>
+                <h3>Organizers</h3>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8 custom-lg-6">
-                    <div class="row">
-                        <div class="col-md-3 text-center">
-                            <div class="single-organizer">
-                                <a href="https://www.linkedin.com/in/pesceleonardo/" target="_blank">
-                                    <img src="assets/images/neurips2026/organizers/Leonardo Pesce.jpg" alt="Organizer 1" class="img-fluid">
-                                    <h6>Leonardo Pesce</h6>
-                                </a>
-                                <p>National University of Singapore</p>
-                            </div>
+            <div class="content-col content-col-wide">
+                <div class="people-grid">
+                        <div class="person-card">
+                            <a href="https://www.linkedin.com/in/pesceleonardo/" target="_blank">
+                                <img src="assets/images/neurips2026/organizers/Leonardo Pesce.jpg" alt="Leonardo Pesce">
+                                <h6>Leonardo Pesce</h6>
+                            </a>
+                            <p>National University of Singapore</p>
                         </div>
-                        <div class="col-md-3 text-center">
-                            <div class="single-organizer">
-                                <a href="https://home.jiawennw.com/about/" target="_blank">
-                                    <img src="assets/images/organizers/Jiawen Wei.jpg" alt="Organizer 2" class="img-fluid">
-                                    <h6>Jiawen Wei</h6>
-                                </a>
-                                <p>National University of Singapore</p>
-                            </div>
+                        <div class="person-card">
+                            <a href="https://home.jiawennw.com/about/" target="_blank">
+                                <img src="assets/images/organizers/Jiawen Wei.jpg" alt="Jiawen Wei">
+                                <h6>Jiawen Wei</h6>
+                            </a>
+                            <p>National University of Singapore</p>
                         </div>
-                        <div class="col-md-3 text-center">
-                            <div class="single-organizer">
-                                <a href="https://staff.fnwi.uva.nl/m.welling/" target="_blank">
-                                    <img src="assets/images/neurips2026/organizers/Max Welling.jpg" alt="Organizer 3" class="img-fluid">
-                                    <h6>Max Welling</h6>
-                                </a>
-                                <p>University of Amsterdam</p>
-                            </div>
+                        <div class="person-card">
+                            <a href="https://staff.fnwi.uva.nl/m.welling/" target="_blank">
+                                <img src="assets/images/neurips2026/organizers/Max Welling.jpg" alt="Max Welling">
+                                <h6>Max Welling</h6>
+                            </a>
+                            <p>University of Amsterdam</p>
                         </div>
-                        <div class="col-md-3 text-center">
-                            <div class="single-organizer">
-                                <a href="https://www.mathexlab.com/" target="_blank">
-                                    <img src="assets/images/organizers/Gianmarco Mengaldo.jpg" alt="Organizer 4" class="img-fluid">
-                                    <h6>Gianmarco Mengaldo</h6>
-                                </a>
-                                <p>National University of Singapore</p>
-                            </div>
+                        <div class="person-card">
+                            <a href="https://www.mathexlab.com/" target="_blank">
+                                <img src="assets/images/organizers/Gianmarco Mengaldo.jpg" alt="Gianmarco Mengaldo">
+                                <h6>Gianmarco Mengaldo</h6>
+                            </a>
+                            <p>National University of Singapore</p>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>
     <!-- Organizers end -->
 
-    
+
     <!-- Program Committee start -->
-    <section id="program-committee" class="program-committee section-fade-in">
+    <section id="program-committee" class="program-committee section-fade-in section-band section-band-sunken">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="section-heading col-md-8 custom-lg-6">
-                    <h3>Program Committee</h3>
-                    <div class="separator-div"></div>
-                </div>
+            <div class="section-heading">
+                <span class="eyebrow">Reviewers</span>
+                <h3>Program Committee</h3>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8 custom-lg-6 text-left">
-                    <ul>
-                        <li>Gabriele Messori</li>
-                        <li>Steven Brunton</li>
-                        <li>Erik Cambria <i>(invitation sent)</i></li>
-                        <li>Wojciech Samek</li>
-                        <li>Ricardo Vinuesa</li>
-                        <li>Xiaoxiang Zhu</li>
-                        <li>Nils Thuerey</li>
-                        <li>Duncan Watson-Parris</li>
-                        <li>Jeff Adie</li>
-                        <li>Laure Zanna <i>(invitation sent)</i></li>
-                        <li>Wessel Bruinsma</li>
-                        <li>Elizabeth Barnes</li>
-                        <li>Xin Wang</li>
-                        <li>Rui Mao</li>
-                        <li>Luwei Xiao</li>
-                        <li>Christian Lessig</li>
-                    </ul>
-                </div>
+            <div class="content-col content-col-wide">
+                <div class="committee-grid">
+                        <div class="committee-chip"><span>Gabriele Messori</span></div>
+                        <div class="committee-chip"><span>Steven Brunton</span></div>
+                        <div class="committee-chip"><span>Erik Cambria</span><span class="chip-status">Invited</span></div>
+                        <div class="committee-chip"><span>Wojciech Samek</span></div>
+                        <div class="committee-chip"><span>Ricardo Vinuesa</span></div>
+                        <div class="committee-chip"><span>Xiaoxiang Zhu</span></div>
+                        <div class="committee-chip"><span>Nils Thuerey</span></div>
+                        <div class="committee-chip"><span>Duncan Watson-Parris</span></div>
+                        <div class="committee-chip"><span>Jeff Adie</span></div>
+                        <div class="committee-chip"><span>Laure Zanna</span><span class="chip-status">Invited</span></div>
+                        <div class="committee-chip"><span>Wessel Bruinsma</span></div>
+                        <div class="committee-chip"><span>Elizabeth Barnes</span></div>
+                        <div class="committee-chip"><span>Xin Wang</span></div>
+                        <div class="committee-chip"><span>Rui Mao</span></div>
+                        <div class="committee-chip"><span>Luwei Xiao</span></div>
+                        <div class="committee-chip"><span>Christian Lessig</span></div>
+                    </div>
             </div>
         </div>
     </section>
