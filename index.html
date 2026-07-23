@@ -101,7 +101,7 @@
                     </div>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link nav-cta" href="#call-for-submission">Submit a Paper</a>
+                    <a class="nav-link nav-cta" id="nav-submit-cta" href="#call-for-submission">Submit a Paper</a>
                   </li>
                 </ul>
               </div>
@@ -124,7 +124,7 @@
                     <div class="hero-meta">
                         <span class="hero-pill"><i class="fas fa-calendar-day"></i>December 11–12, 2026</span>
                         <span class="hero-pill"><i class="fas fa-location-dot"></i>Sydney, Australia</span>
-                        <span class="hero-pill"><i class="fas fa-file-lines"></i>Submissions open</span>
+                        <span class="hero-pill" id="hero-countdown-pill"><i class="fas fa-file-lines"></i><span id="hero-countdown-text">Submissions open</span></span>
                     </div>
                     <p class="">Join us in mapping the future of trustworthy AI Foundation Models for Weather and Climate</p>
                 </div>
@@ -363,33 +363,33 @@
                     <div class="space"></div>
 
                     <h4>Important Dates</h4>
-                    <p class="dates-note">All dates are in AoE (Anywhere on Earth) time.</p>
+                    <p class="dates-note">All dates are in AoE (Anywhere on Earth, UTC−12) time — deadlines end at 23:59 AoE, equivalent to 11:59 GMT the following day.</p>
                     <div class="dates-table-wrap">
                     <table class="table table-striped table-sm">
                         <tbody>
-                            <tr>
-                                <td>Submission Deadline</td>
-                                <td class="font-weight-bold">August 29, 2026, AoE</td>
+                            <tr data-deadline-row data-deadline="2026-08-30T11:59:59Z" data-deadline-label="Submission Deadline">
+                                <td><span class="deadline-event-label">Submission Deadline</span></td>
+                                <td class="font-weight-bold"><span class="deadline-event-date">August 29, 2026, AoE</span><span class="deadline-countdown"></span></td>
+                            </tr>
+                            <tr data-deadline-row data-deadline="2026-09-16T11:59:59Z" data-deadline-label="Review Period">
+                                <td><span class="deadline-event-label">Review Period</span></td>
+                                <td class="font-weight-bold"><span class="deadline-event-date">September 1 – September 15, 2026, AoE</span><span class="deadline-countdown"></span></td>
+                            </tr>
+                            <tr data-deadline-row data-deadline="2026-09-21T11:59:59Z" data-deadline-label="Rebuttal Period Ends">
+                                <td><span class="deadline-event-label">Rebuttal Period Ends</span></td>
+                                <td class="font-weight-bold"><span class="deadline-event-date">September 20, 2026, AoE</span><span class="deadline-countdown"></span></td>
+                            </tr>
+                            <tr data-deadline-row data-deadline="2026-09-28T11:59:59Z" data-deadline-label="Advisory Committee Discussion Ends">
+                                <td><span class="deadline-event-label">Advisory Committee Discussion Ends</span></td>
+                                <td class="font-weight-bold"><span class="deadline-event-date">September 27, 2026, AoE</span><span class="deadline-countdown"></span></td>
+                            </tr>
+                            <tr data-deadline-row data-deadline="2026-09-29T11:59:59Z" data-deadline-label="Notification of Acceptance">
+                                <td><span class="deadline-event-label">Notification of Acceptance</span></td>
+                                <td class="font-weight-bold"><span class="deadline-event-date">September 28, 2026, AoE</span><span class="deadline-countdown"></span></td>
                             </tr>
                             <tr>
-                                <td>Review Period</td>
-                                <td class="font-weight-bold">September 1 – September 15, 2026, AoE</td>
-                            </tr>
-                            <tr>
-                                <td>Rebuttal Period Ends</td>
-                                <td class="font-weight-bold">September 20, 2026, AoE</td>
-                            </tr>
-                            <tr>
-                                <td>Advisory Committee Discussion Ends</td>
-                                <td class="font-weight-bold">September 27, 2026, AoE</td>
-                            </tr>
-                            <tr>
-                                <td>Notification of Acceptance</td>
-                                <td class="font-weight-bold">September 28, 2026, AoE</td>
-                            </tr>
-                            <tr>
-                                <td>Workshop Date</td>
-                                <td class="font-weight-bold">NeurIPS 2026 (TBD)</td>
+                                <td><span class="deadline-event-label">Workshop Date</span></td>
+                                <td class="font-weight-bold"><span class="deadline-event-date">December 11 or 12, 2026, NeurIPS 2026</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -687,6 +687,73 @@
                 observer.observe(section);
             });
         });
+    </script>
+
+    <script>
+        (function () {
+            function pad(n) {
+                return n < 10 ? '0' + n : '' + n;
+            }
+
+            function formatDuration(ms) {
+                if (ms <= 0) return 'Deadline passed';
+                var totalSeconds = Math.floor(ms / 1000);
+                var weeks = Math.floor(totalSeconds / 604800);
+                var days = Math.floor((totalSeconds % 604800) / 86400);
+                var hours = Math.floor((totalSeconds % 86400) / 3600);
+                var minutes = Math.floor((totalSeconds % 3600) / 60);
+                var seconds = totalSeconds % 60;
+                return pad(weeks) + ' weeks ' + pad(days) + ' days and ' +
+                    pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+            }
+
+            function formatHeroDuration(ms) {
+                var totalMinutes = Math.floor(ms / 60000);
+                var days = Math.floor(totalMinutes / 1440);
+                var hours = Math.floor((totalMinutes % 1440) / 60);
+                if (days > 0) return days + 'd ' + hours + 'h left to submit';
+                var minutes = totalMinutes % 60;
+                if (hours > 0) return hours + 'h ' + minutes + 'm left to submit';
+                return minutes + 'm left to submit';
+            }
+
+            function tick() {
+                var now = Date.now();
+                var rows = document.querySelectorAll('[data-deadline-row]');
+
+                rows.forEach(function (row) {
+                    var deadline = new Date(row.getAttribute('data-deadline')).getTime();
+                    var span = row.querySelector('.deadline-countdown');
+                    var remaining = deadline - now;
+                    var isPast = remaining <= 0;
+
+                    row.classList.toggle('deadline-passed', isPast);
+                    if (span) {
+                        span.textContent = isPast ? '' : ' — ' + formatDuration(remaining);
+                    }
+                });
+
+                var heroText = document.getElementById('hero-countdown-text');
+                var navCta = document.getElementById('nav-submit-cta');
+                var submissionRow = document.querySelector('[data-deadline-label="Submission Deadline"]');
+                if (submissionRow) {
+                    var submissionRemaining = new Date(submissionRow.getAttribute('data-deadline')).getTime() - now;
+                    var submissionClosed = submissionRemaining <= 0;
+
+                    if (heroText) {
+                        heroText.textContent = submissionClosed
+                            ? 'Deadline closed'
+                            : formatHeroDuration(submissionRemaining);
+                    }
+                    if (navCta) {
+                        navCta.style.display = submissionClosed ? 'none' : '';
+                    }
+                }
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        })();
     </script>
 
 </body>
