@@ -98,8 +98,7 @@ button:focus-visible,
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
     color: var(--accent);
     margin-bottom: 14px;
 }
