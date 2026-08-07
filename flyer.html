@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>XAI4Science — Flyer</title>
 
 <!-- For favicon -->
@@ -33,8 +34,29 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
+  /* `safe` keeps the artboard reachable if it ever outgrows the viewport:
+     plain centring overflows equally both ways and the left side cannot be
+     scrolled to. Ignored by browsers that do not know the keyword. */
+  align-items:safe center;
   gap:18px;
   padding:22px 0 40px;
+}
+
+/* ---- fit-to-width ----------------------------------------------------
+   The poster is a fixed 1080x1350 artboard, so on a narrow screen it is
+   scaled as a whole rather than reflowed. Only these two wrappers scale;
+   .canvas keeps its exact box, and .canvas (#poster) is what both exports
+   clone, so nothing here can reach the PNG or the PDF. --fit is set by the
+   script below and falls back to 1. */
+.canvas-shell{
+  width: calc(1080px * var(--fit, 1));
+  height: calc(1350px * var(--fit, 1));
+}
+.canvas-frame{
+  width:1080px;
+  height:1350px;
+  transform: scale(var(--fit, 1));
+  transform-origin: top left;
 }
 
 .canvas{
@@ -353,8 +375,11 @@ h1.title{
 
 /* ---- export controls: live outside .canvas, never part of the export ---- */
 .export-bar{
-  width:1080px;
+  /* tracks the scaled poster so the controls stay flush with its edges */
+  width: calc(1080px * var(--fit, 1));
+  max-width:100%;
   display:flex;
+  flex-wrap:wrap;
   justify-content:flex-end;
   align-items:center;
   gap:10px;
@@ -394,8 +419,32 @@ h1.title{
   text-decoration:none;
   opacity:0.85;
   padding:11px 0;
+  /* holds the link at the left while the buttons stay flush right; it has to
+     live here rather than on .status, which is hidden when it has no message */
+  margin-right:auto;
 }
 .export-bar .back-link:hover{ opacity:1; color: var(--coral); }
+/* Screen only, and capped well below the 1080px artboard so this can never
+   match inside the exported SVG's own viewport. */
+@media screen and (max-width: 1000px){
+  body{ padding-left:12px; padding-right:12px; }
+}
+
+/* Above this the link sits left and the buttons right on a single line. 677px
+   is where that line stops fitting (link 325px + two 154px buttons + gaps, in
+   a viewport less the 12px body padding) — measured, so it tracks the natural
+   wrap rather than pre-empting it. Below it the link takes its own row and the
+   buttons centre underneath, together, instead of breaking one per line.
+   Re-measure if the link's wording changes. */
+@media screen and (max-width: 677px){
+  .export-bar{ justify-content:center; }
+  .export-bar .back-link{ flex:1 0 100%; }
+  .export-bar .status{ margin-right:0; flex:1 0 100%; text-align:center; }
+}
+/* an idle status span would otherwise sit in the row and pull the buttons
+   off-centre by half a gap */
+.export-bar .status:empty{ display:none; }
+
 /* ---- print = the PDF export: one page, exact poster size, colours kept ---- */
 @media print{
   @page{ size: 1080px 1350px; margin:0; }
@@ -408,6 +457,12 @@ h1.title{
     background:var(--cloud);
   }
   .export-bar{ display:none !important; }
+  /* the on-screen fit must never reach the printed page */
+  .canvas-shell, .canvas-frame{
+    width:1080px;
+    height:1350px;
+    transform:none;
+  }
   .canvas{
     margin:0;
     break-inside:avoid;
@@ -430,6 +485,8 @@ h1.title{
   <button id="btn-pdf" type="button">Download PDF</button>
 </div>
 
+<div class="canvas-shell">
+<div class="canvas-frame">
 <div class="canvas" id="poster">
   <svg class="hero-graphic" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -522,6 +579,25 @@ h1.title{
     </div>
   </div>
 </div>
+</div>
+</div>
+
+<script>
+// Scale the fixed artboard down to whatever width the screen actually has.
+// Writes --fit on <html> only; #poster is untouched, so the exports are too.
+(function(){
+  function fit(){
+    var s = getComputedStyle(document.body);
+    var avail = document.documentElement.clientWidth
+              - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight);
+    var f = Math.min(1, avail / 1080);
+    document.documentElement.style.setProperty('--fit', f.toFixed(4));
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+})();
+</script>
 
 <script>
 (function(){
