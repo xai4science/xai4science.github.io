@@ -150,6 +150,16 @@ button:focus-visible,
     display: inline-block;
 }
 
+/* style.css sets a global `ul li { margin-bottom: 12px }` for prose lists. Once the
+   navbar becomes a horizontal flex row it counts that margin when centring, shifting
+   every item 6px up relative to the brand. Only drop it at lg+ — in the collapsed
+   menu the items stack and the spacing is wanted. */
+@media (min-width: 992px) {
+    .navbar-nav .nav-item {
+        margin-bottom: 0;
+    }
+}
+
 .navbar-nav .nav-link {
     color: var(--ink-soft) !important;
     font-family: var(--font-body);
@@ -625,6 +635,12 @@ section[id] {
     font-size: 13.5px;
     color: var(--ink-soft);
     margin-bottom: 14px;
+}
+
+.flyer-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-top: 18px;
 }
 
 .deadline-countdown {

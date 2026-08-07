@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>XAI4Science — One-Pager</title>
+<title>XAI4Science — Flyer</title>
+
+<!-- For favicon -->
+<link rel="shortcut icon" type="image/svg+xml" href="assets/logo/neurips.svg" />
 <style>
 
 @font-face { font-family: 'Bricolage'; src: url('assets/fonts/BricolageGrotesque-Regular.woff2') format('woff2'); font-weight: 400; }
@@ -382,6 +385,17 @@ h1.title{
   opacity:0.85;
   margin-right:auto;
 }
+.export-bar .back-link{
+  font-family:'PlexMono', monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.4px;
+  color: var(--white);
+  text-decoration:none;
+  opacity:0.85;
+  padding:11px 0;
+}
+.export-bar .back-link:hover{ opacity:1; color: var(--coral); }
 /* ---- print = the PDF export: one page, exact poster size, colours kept ---- */
 @media print{
   @page{ size: 1080px 1350px; margin:0; }
@@ -410,6 +424,7 @@ h1.title{
 <body>
 
 <div class="export-bar">
+  <a class="back-link" href="index.html">&larr; Back to XAI4Science</a>
   <span class="status" id="export-status"></span>
   <button class="alt" id="btn-png" type="button">Download PNG</button>
   <button id="btn-pdf" type="button">Download PDF</button>
