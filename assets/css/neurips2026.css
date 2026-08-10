@@ -227,7 +227,7 @@ button:focus-visible,
     background: linear-gradient(180deg, var(--surface-sunken) 0%, var(--surface) 100%);
     margin-top: 0;
     padding-top: 132px;
-    padding-bottom: 72px;
+    padding-bottom: 48px;
     overflow: hidden;
 }
 
@@ -259,6 +259,12 @@ button:focus-visible,
 .header-text {
     gap: 20px;
     padding: 0;
+}
+
+/* style.css gives the tagline margin-bottom:60px, which stacked on .header-text's
+   20px gap and left the share row floating 80px below it */
+.header-text p {
+    margin-bottom: 16px;
 }
 
 .header-text h2 {
@@ -293,6 +299,93 @@ button:focus-visible,
 }
 
 .hero-pill i { color: var(--accent); }
+
+/* Share row: deliberately quieter than the nav's Submit a Paper CTA — the
+   flyer reads as a button, the networks as plain links beside it. */
+.hero-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 14px;
+    margin-top: 0;
+}
+
+/* the mark stays monochrome with the label: the site accent turned the LinkedIn
+   logo green, and LinkedIn blue would be the only blue on the page */
+.header-text .hero-share a.hero-share-link i {
+    margin-right: 7px;
+    color: inherit;
+}
+
+/* style.css:243 turns every <a> inside .header-text into a 200x60 purple
+   template button (capitalised, drop-shadowed). It out-specifies a bare class,
+   so undo it here before styling the row. */
+.header-text .hero-share a {
+    width: auto;
+    height: auto;
+    line-height: normal;
+    border: none;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    text-transform: none;
+    transition: none;
+}
+
+.header-text .hero-share a.hero-share-flyer {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--accent-strong);
+    background: var(--accent-tint);
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 9px 18px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.header-text .hero-share a.hero-share-flyer:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* .header-text carries color:#fff from the template's dark-hero styling, so
+   anything in here that does not set its own colour inherits white. Scoped to
+   match the neighbouring rules and to stay ahead of any .header-text <element>
+   selector. */
+.header-text .hero-share-and {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+}
+
+.header-text .hero-share a.hero-share-link {
+    /* matches .hero-share-and so the sentence runs at one size */
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+/* underline the word only — on the anchor it ran under the logo as well */
+.header-text .hero-share a.hero-share-link span {
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+}
+
+.header-text .hero-share a.hero-share-link:hover {
+    color: var(--accent-strong);
+}
+
+.header-text .hero-share a.hero-share-link:hover span {
+    border-bottom-color: var(--accent);
+}
 
 .hero-tagline {
     font-family: var(--font-display);
@@ -637,11 +730,6 @@ section[id] {
     margin-bottom: 14px;
 }
 
-.flyer-note {
-    font-size: 13.5px;
-    color: var(--ink-soft);
-    margin-top: 18px;
-}
 
 .deadline-countdown {
     display: block;

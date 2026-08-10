@@ -402,6 +402,21 @@ h1.title{
   border-color: var(--atmosphere);
 }
 .export-bar button:hover{ background: var(--coral); border-color: var(--coral); color: var(--white); }
+/* teal marks it as the step after the downloads rather than another one */
+.export-bar .share-li{
+  font-family:'PlexMono', monospace;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:0.4px;
+  color: var(--white);
+  background: var(--teal);
+  border:1.5pt solid var(--teal);
+  border-radius:100px;
+  padding:11px 22px;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.export-bar .share-li:hover{ background: var(--atmosphere-deep); border-color: var(--atmosphere-deep); }
 .export-bar button[disabled]{ opacity:0.55; cursor:progress; }
 .export-bar .status{
   font-family:'PlexMono', monospace;
@@ -430,13 +445,13 @@ h1.title{
   body{ padding-left:12px; padding-right:12px; }
 }
 
-/* Above this the link sits left and the buttons right on a single line. 677px
-   is where that line stops fitting (link 325px + two 154px buttons + gaps, in
-   a viewport less the 12px body padding) — measured, so it tracks the natural
-   wrap rather than pre-empting it. Below it the link takes its own row and the
-   buttons centre underneath, together, instead of breaking one per line.
-   Re-measure if the link's wording changes. */
-@media screen and (max-width: 677px){
+/* Above this the link sits left and the buttons right on a single line. 883px
+   is where that line stops fitting — the link plus the three actions need about
+   860px, and the viewport also gives up 12px of body padding each side. Measured,
+   so it tracks the real wrap instead of pre-empting it. Below it the link takes
+   its own row and the buttons centre underneath, together, rather than breaking
+   one per line. Re-measure if the wording changes or another action is added. */
+@media screen and (max-width: 883px){
   .export-bar{ justify-content:center; }
   .export-bar .back-link{ flex:1 0 100%; }
   .export-bar .status{ margin-right:0; flex:1 0 100%; text-align:center; }
@@ -483,6 +498,9 @@ h1.title{
   <span class="status" id="export-status"></span>
   <button class="alt" id="btn-png" type="button">Download PNG</button>
   <button id="btn-pdf" type="button">Download PDF</button>
+  <!-- an empty composer, so the PNG downloaded above can be attached to the post -->
+  <a class="share-li" href="https://www.linkedin.com/feed/?shareActive=true"
+     target="_blank" rel="noopener">Share on LinkedIn</a>
 </div>
 
 <div class="canvas-shell">
