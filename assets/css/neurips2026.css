@@ -749,12 +749,19 @@ section[id] {
 /* -----------------------------------------------------
    Organizers & committee
 ------------------------------------------------------ */
+/* Flex rather than grid. The old repeat(4, 1fr) left three organizers pinned to
+   the left with a dead fourth column, and grid's justify-content only centres the
+   track set — a lone card on a wrapped row still sits in track 1. Flex centres
+   each row on its own, so a 2+1 wrap keeps the last card centred too. */
 .people-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 32px;
     margin-top: 8px;
 }
+
+.people-grid .person-card { flex: 0 1 220px; }
 
 .person-card {
     text-align: center;
@@ -937,7 +944,7 @@ section[id] {
     .header-text h2 { font-size: 38px; }
     .focus-list { grid-template-columns: repeat(2, 1fr); }
     .speaker-grid { grid-template-columns: 1fr; }
-    .people-grid { grid-template-columns: repeat(2, 1fr); }
+    .people-grid .person-card { flex-basis: 200px; }
     .committee-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -958,7 +965,8 @@ section[id] {
 }
 
 @media (max-width: 576px) {
-    .people-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .people-grid { gap: 16px; }
+    .people-grid .person-card { flex-basis: 150px; }
     .committee-grid { grid-template-columns: 1fr; }
     .hero-pill { font-size: 13px; padding: 7px 12px; }
 }
