@@ -407,6 +407,13 @@ section[id] {
     scroll-margin-top: 88px;
 }
 
+/* in-page targets that aren't a whole section, e.g. #important-dates linked
+   from Call for Reviewers, need the same offset so the sticky nav doesn't
+   cover them on jump */
+#important-dates {
+    scroll-margin-top: 88px;
+}
+
 .section-band {
     padding: 76px 0;
 }
@@ -417,6 +424,22 @@ section[id] {
 
 .section-band-sunken {
     background: var(--surface-sunken);
+}
+
+/* Sponsors and Reviewers are both asks-of-the-reader, back to back at the end
+   of the page — the plain/sunken alternation alone left them reading as one
+   undifferentiated panel. accent-tint sets them apart from the informational
+   sections above; the two get slightly different strengths of it so they also
+   read apart from each other. */
+.section-band-accent {
+    background: var(--accent-tint);
+}
+
+.section-band-accent-soft {
+    /* fades from Sponsors' own accent-tint down to white, so the seam between
+       the two reads as one tone easing off rather than a hard drop to white
+       and back */
+    background: linear-gradient(180deg, var(--accent-tint) 0%, var(--surface) 55%);
 }
 
 /* Two-column layout for text-heavy sections (About, Submissions) so the
