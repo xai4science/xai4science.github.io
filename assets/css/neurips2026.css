@@ -300,6 +300,30 @@ button:focus-visible,
 
 .hero-pill i { color: var(--accent); }
 
+/* Just a green underlined word inside the pill — the underline is the only
+   affordance; nothing draws a box of its own (no background, border, or focus
+   ring), and every metric is inherited so the pill's height is unchanged. */
+.hero-pill .hero-submit-link,
+.hero-pill .hero-submit-link:hover,
+.hero-pill .hero-submit-link:focus,
+.hero-pill .hero-submit-link:focus-visible,
+.hero-pill .hero-submit-link:active {
+    display: inline;
+    font: inherit;
+    font-weight: 700;
+    color: var(--accent);
+    background: none;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+}
+
 /* Share row: deliberately quieter than the nav's Submit a Paper CTA — the
    flyer reads as a button, the networks as plain links beside it. */
 .hero-share {

@@ -746,6 +746,8 @@
 
     <script>
         (function () {
+            var SUBMISSION_URL = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/XAI4Science#tab-recent-activity';
+
             function pad(n) {
                 return n < 10 ? '0' + n : '' + n;
             }
@@ -766,10 +768,13 @@
                 var totalMinutes = Math.floor(ms / 60000);
                 var days = Math.floor(totalMinutes / 1440);
                 var hours = Math.floor((totalMinutes % 1440) / 60);
-                if (days > 0) return days + 'd ' + hours + 'h left to submit';
                 var minutes = totalMinutes % 60;
-                if (hours > 0) return hours + 'h ' + minutes + 'm left to submit';
-                return minutes + 'm left to submit';
+                var lead;
+                if (days > 0) lead = days + 'd ' + hours + 'h';
+                else if (hours > 0) lead = hours + 'h ' + minutes + 'm';
+                else lead = minutes + 'm';
+                return lead + ' left to <a class="hero-submit-link" href="' + SUBMISSION_URL +
+                    '" target="_blank" rel="noopener">submit</a>';
             }
 
             function tick() {
@@ -796,9 +801,11 @@
                     var submissionClosed = submissionRemaining <= 0;
 
                     if (heroText) {
-                        heroText.textContent = submissionClosed
-                            ? 'Deadline closed'
-                            : formatHeroDuration(submissionRemaining);
+                        if (submissionClosed) {
+                            heroText.textContent = 'Deadline closed';
+                        } else {
+                            heroText.innerHTML = formatHeroDuration(submissionRemaining);
+                        }
                     }
                     if (navCta) {
                         navCta.style.display = submissionClosed ? 'none' : '';
